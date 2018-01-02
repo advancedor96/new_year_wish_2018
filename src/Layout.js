@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Navigator from './Navigator';
+import Intro from './Intro';
 import AddMessage from './AddMessage';
 import Messages from './Messages';
 import axios from 'axios';
@@ -10,6 +10,9 @@ const LAYOUT = styled.div`
 	position: relative;
 	display: flex;
 	flex-flow: column;
+	min-width: 370px;
+	max-width: 1140px;
+	margin: auto;
 `
 class Layout extends Component {
 	state = {
@@ -42,7 +45,7 @@ class Layout extends Component {
 	render() {
 		return (
 			<LAYOUT>
-				<Navigator add={this.addHandler} />
+				<Intro add={this.addHandler} />
 				<AddMessage 
 					show={this.state.add} 
 					close={this.closeHandler} 

@@ -18,6 +18,9 @@ const MessageWindow = styled.div`
 	background: ${props => props.bgColor};
 	box-sizing: border-box;
 
+	transform: ${props => props.show ? 'translateY(0)' : 'translateY(-100vh)'};
+	opacity: ${props => props.show ? '1' : '0'};
+
 `
 const NameField = styled.input`
     background-color: transparent;
@@ -35,15 +38,15 @@ class AddMessage extends Component {
 	state={
 		bgColor: ''
 	}
+	componentWillReceiveProps(nProps){
+		if(nProps.show === true){
+			this.setState({bgColor: this.getRandomColor()})
+		}
+	}
 	componentWillMount(){
-		console.log('componentWill Mount');
 		this.setState({bgColor: this.getRandomColor()})
 	}
-	componentWillUpdate(){
-		console.log('componentWillU pdate');
-		// this.setState({bgColor: this.getRandomColor()})
 
-	}
 	changeColorHandler = ()=>{
 		let oldColor = this.state.bgColor;
 		let newColor  = this.getRandomColor();
@@ -94,10 +97,7 @@ class AddMessage extends Component {
 					show={this.props.show} 
 					closeAdd={this.props.close}/>
 
-				<MessageWindow style={{
-					transform: this.props.show? 'translateY(0)' : 'translateY(-100vh)',
-					opacity: this.props.show? '1' : '0',
-				}} bgColor={this.state.bgColor}>
+				<MessageWindow bgColor={this.state.bgColor} show={this.props.show}>
 					<button onClick={this.changeColorHandler}>換顏色</button>
 					<NameField type='text' 
 						// onChange={this.nameChange} 
