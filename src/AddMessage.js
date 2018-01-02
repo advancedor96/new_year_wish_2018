@@ -41,6 +41,8 @@ class AddMessage extends Component {
 	componentWillReceiveProps(nProps){
 		if(nProps.show === true){
 			this.setState({bgColor: this.getRandomColor()})
+			this.nameInput.value = '';
+			this.msgInput.value = '';
 		}
 	}
 	componentWillMount(){
