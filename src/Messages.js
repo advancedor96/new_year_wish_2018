@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import Msg from './Msg';
 import _ from 'lodash';
 const MESSAGES = styled.div`
-	height: calc( 100vh - 30px );
-	overflow: auto;
+	/* height: calc( 100vh - 30px ); */
+	/* overflow: auto; */
 	display: flex;
 	flex-wrap: wrap;
 	align-items: flex-start;

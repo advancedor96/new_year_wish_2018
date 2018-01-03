@@ -6,7 +6,7 @@ import axios from 'axios';
 
 import styled from 'styled-components';
 const LAYOUT = styled.div`
-	height: 100vh;
+	/* height: 100vh; */
 	position: relative;
 	display: flex;
 	flex-flow: column;
@@ -16,7 +16,7 @@ const LAYOUT = styled.div`
 `
 class Layout extends Component {
 	state = {
-		add: false,
+		add: true,
 		msg_list: []
 	}
 	componentDidMount(){

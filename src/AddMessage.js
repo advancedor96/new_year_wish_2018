@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Aux from './Aux';
 import Backdrop from './Backdrop';
 import axios from 'axios';
-
+import FontAwesome from 'react-fontawesome';
 const MessageWindow = styled.div`
 	/* border: 1px solid red; */
 
@@ -20,6 +20,7 @@ const MessageWindow = styled.div`
 
 	transform: ${props => props.show ? 'translateY(0)' : 'translateY(-100vh)'};
 	opacity: ${props => props.show ? '1' : '0'};
+	padding: 20px;
 
 `
 const NameField = styled.input`
@@ -27,12 +28,15 @@ const NameField = styled.input`
     border: none;
     border-image: initial;
     padding: 10px;
+	 width: 80%;
+	 border-bottom: 1px solid gray;
 `
 
 const TEXTAREA = styled.textarea`
 	padding: 10px;
 	background-color: transparent;
 	border: 0.5 solid gray;
+	margin-top: 20px;
 `
 class AddMessage extends Component {
 	state={
@@ -100,15 +104,19 @@ class AddMessage extends Component {
 					closeAdd={this.props.close}/>
 
 				<MessageWindow bgColor={this.state.bgColor} show={this.props.show}>
-					<button onClick={this.changeColorHandler}>換顏色</button>
+					<FontAwesome name='times' 
+						style={{ position:'absolute', right: '5px', top:'5px'}}
+						onClick={this.props.close}
+					/>
 					<NameField type='text' 
 						// onChange={this.nameChange} 
 						placeholder="姓名"
 						innerRef={ comp=> this.nameInput = comp}
+
 					/>
 					<br />
 
-					<TEXTAREA cols="50" rows="20" 
+					<TEXTAREA
 						style={{width: '80%'}}
 						//  onChange={this.msgChange} 
 						 placeholder="留言"
@@ -117,6 +125,7 @@ class AddMessage extends Component {
 					<br />
 
 					<button onClick={this.submitHandler}>送出</button>
+					<button onClick={this.changeColorHandler}><FontAwesome name='refresh' /> 換顏色</button>
 				</MessageWindow>
 			</Aux>
 		)

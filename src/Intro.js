@@ -24,11 +24,12 @@ const RIGHT = styled.div`
 
 const NewWisthButton = styled.span`
 	display: inline-table;
-	border-bottom: 1px solid black;
+	border: 1px solid red;
 	font-weight: bolder;
 	margin-top: 60px;
 	cursor: pointer;
-	padding: 3px;
+	padding: 3px 8px;
+	border-radius: 7px;
 `
 
 const Transbox = styled.div`
